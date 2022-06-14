@@ -64,3 +64,14 @@ Why Golang?
 
     Paradox of Choice (Barry Schwartz)
     
+
+    To run a go program
+        go run <program_name.go>
+
+    To create a build
+        go build <program_name.go>
+        go build -o <binary_name> <program_name>.go
+
+        ./<program_name>
+        OR
+        <program_name>.exe
