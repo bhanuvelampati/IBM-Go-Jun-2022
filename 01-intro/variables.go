@@ -88,7 +88,70 @@ func main() {
 		fmt.Println(str, result)
 	*/
 
-	x, y, str := 100, 200, "Sum of 100 and 200 is"
+	/*
+		x, y, str := 100, 200, "Sum of 100 and 200 is"
+		result := x + y
+		fmt.Println(str, result)
+	*/
+
+	x, y := 100, 200
 	result := x + y
-	fmt.Println(str, result)
+	fmt.Printf("Sum of x(%d)[%T] and y(%d)[%T] is %d\n", x, x, y, y, result)
+
+	//constants
+	const pi float32 = 3.14
+
+	//iota
+	/*
+		const (
+			red   = iota
+			green = iota
+			blue  = iota
+		)
+	*/
+
+	/*
+		const (
+			red = iota
+			green
+			blue
+		)
+	*/
+
+	/*
+		const (
+			red = iota
+			green
+			_
+			blue
+		)
+	*/
+
+	/*
+		const (
+			red = iota + 2
+			green
+			blue
+		)
+	*/
+
+	const (
+		red = iota * 2
+		green
+		blue
+	)
+
+	fmt.Printf("red = %v, green = %v, blue = %v\n", red, green, blue)
+
+	const (
+		VERBOSE = 1 << iota
+		CONFIG_FROM_DISK
+		DATABASE_REQUIRED
+		LOGGER_ACTIVATED
+		DEBUG
+		FLOAT_SUPPORT
+		RECOVERY_MODE
+		REBOOT_ON_FAILURE
+	)
+	fmt.Printf("%b, %b, %b, %b, %b, %b, %b, %b\n", VERBOSE, CONFIG_FROM_DISK, DATABASE_REQUIRED, LOGGER_ACTIVATED, DEBUG, FLOAT_SUPPORT, RECOVERY_MODE, REBOOT_ON_FAILURE)
 }
