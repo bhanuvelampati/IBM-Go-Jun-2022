@@ -102,7 +102,6 @@ func main() {
 		fallthrough
 	case 6:
 		fmt.Println("is <= 6")
-		fallthrough
 	case 7:
 		fmt.Println("is <= 7")
 		fallthrough
@@ -126,4 +125,41 @@ func main() {
 	default:
 		fmt.Println("Invalid plan")
 	}
+	fmt.Println()
+
+	fmt.Println("for constructs")
+	fmt.Println("v1.0")
+	for i := 1; i <= 10; i++ {
+		fmt.Println(i)
+	}
+
+	fmt.Println("v2.0 (while)")
+	num := 1
+	for num < 100 {
+		num += num
+	}
+	fmt.Println("num = ", num)
+
+	fmt.Println("v3.0 (infinite)")
+	numSum := 1
+	for {
+		numSum += numSum
+		if numSum > 100 {
+			break
+		}
+	}
+	fmt.Println("numSum = ", numSum)
+
+	fmt.Println("Using labels")
+LOOP:
+	for i := 1; i <= 9; i++ {
+		for j := 1; j <= 9; j++ {
+			fmt.Println(i, j)
+			if i == j {
+				fmt.Println("-------------")
+				continue LOOP
+			}
+		}
+	}
+
 }
