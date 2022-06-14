@@ -47,8 +47,23 @@ func add(x, y int) int {
 
 /* function with more than one return result */
 
+/*
 func divide(x, y int) (int, int) {
 	quotient := x / y
 	remainder := x % y
 	return quotient, remainder
+}
+*/
+
+/*
+func divide(x, y int) (quotient int, remainder int) {
+	quotient = x / y
+	remainder = x % y
+	return
+}
+*/
+
+func divide(x, y int) (quotient, remainder int) {
+	quotient, remainder = x/y, x%y
+	return
 }

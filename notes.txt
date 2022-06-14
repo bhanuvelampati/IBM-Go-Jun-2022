@@ -119,3 +119,7 @@ programming constructs
     if else
     switch case
     for loop
+
+
+Assignment:03
+    Refactor the solution for assingment:02 using functions
