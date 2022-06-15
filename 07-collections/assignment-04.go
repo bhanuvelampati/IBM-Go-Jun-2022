@@ -14,13 +14,25 @@ func main() {
 	var start, end int
 	fmt.Println("Enter the start and end :")
 	fmt.Scanln(&start, &end)
-LOOP:
+	primeNos := generatePrimse(start, end)
+	fmt.Println(primeNos)
+}
+
+func generatePrimse(start, end int) []int {
+	primeNos := make([]int, 0)
 	for no := start; no <= end; no++ {
-		for i := 2; i <= (no / 2); i++ {
-			if no%i == 0 {
-				continue LOOP
-			}
+		if isPrime(no) {
+			primeNos = append(primeNos, no)
 		}
-		fmt.Println(no)
 	}
+	return primeNos
+}
+
+func isPrime(no int) bool {
+	for i := 2; i <= (no / 2); i++ {
+		if no%i == 0 {
+			return false
+		}
+	}
+	return true
 }
