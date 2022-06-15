@@ -132,3 +132,10 @@ Functions
             - Functions can be passed as arguments to other functions
             - Functions can be returned by other functions
     Variadic functions
+
+Collections
+    Array
+        Fixed size collection of data of the same type
+        
+    Slice
+    Map
