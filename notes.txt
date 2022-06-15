@@ -123,3 +123,11 @@ programming constructs
 
 Assignment:03
     Refactor the solution for assingment:02 using functions
+
+Functions
+    Higher Order Functions
+        Anonymous functions
+        Functions can be treated as data
+            - Functions can be assigned as values to variables
+            - Functions can be passed as arguments to other functions
+            - Functions can be returned by other functions
