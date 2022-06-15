@@ -140,5 +140,8 @@ Collections
     Slice
         Varying size collection of data of the same type
         A pointer to an underlying array
-        
+
     Map
+        Key-value pair collection
+        Use the make function to create a map
+        
