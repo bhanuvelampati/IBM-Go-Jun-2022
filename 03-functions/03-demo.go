@@ -6,8 +6,8 @@ import "fmt"
 
 func main() {
 
-	var fn func()
-	fn = func() {
+	//var fn func()
+	fn := func() {
 		fmt.Println("fn invoked")
 	}
 	fn()
