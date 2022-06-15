@@ -20,6 +20,11 @@ func main() {
 	swap(&x, &y)
 	fmt.Printf("After swapping, x = %d and y = %d\n", x, y)
 
+	nos := []int{3, 1, 4, 2, 5}
+	fmt.Println("Before sorting, nos =", nos)
+	sort(nos)
+	fmt.Println("After sorting, nos =", nos)
+
 }
 
 func increment(x *int) {
@@ -28,4 +33,14 @@ func increment(x *int) {
 
 func swap(n1, n2 *int) {
 	*n1, *n2 = *n2, *n1
+}
+
+func sort(values []int) {
+	for i := 0; i < len(values)-1; i++ {
+		for j := i + 1; j < len(values); j++ {
+			if values[i] > values[j] {
+				values[i], values[j] = values[j], values[i]
+			}
+		}
+	}
 }
