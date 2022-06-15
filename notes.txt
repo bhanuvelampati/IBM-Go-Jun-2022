@@ -145,3 +145,36 @@ Collections
         Key-value pair collection
         Use the make function to create a map
         
+
+Modularity
+    Modules & packages
+    Module
+        A collection of related code which has to be versioned together and distributed together
+        A folder that has the go.mod file
+            module name
+            target go version
+
+        To create a module
+            go mod init <module_name> (advisable => module_name reflects the respository path)
+
+        To run a module
+            go run .
+
+        To build a module
+            go build .
+
+    Package
+
+
+    Before Go 1.13
+        $GOPATH
+            pkg
+            bin
+            src
+                github.com
+                    tkmagesh
+                        myapp
+                            import github.com/tkmagesh/myutils
+
+                        myutils
+    
