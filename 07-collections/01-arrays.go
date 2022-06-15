@@ -20,4 +20,8 @@ func main() {
 	for idx, val := range nos {
 		fmt.Printf("nos[%d] = %d\n", idx, val)
 	}
+
+	newNos := nos
+	nos[0] = 100
+	fmt.Printf("nos = %v, newNos = %v\n", nos, newNos)
 }
