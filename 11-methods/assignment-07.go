@@ -76,6 +76,7 @@ func (products Products) Includes(product Product) bool {
 	return false
 }
 
+//Day-1
 func (products Products) Filter(criteria func(Product) bool) Products {
 	result := Products{}
 	for _, product := range products {
@@ -102,6 +103,26 @@ func (products Products) Any(predicate func(Product) bool) bool {
 		}
 	}
 	return false
+}
+
+func (products Products) FilterCostlyProducts() Products {
+	result := Products{}
+	for _, product := range products {
+		if product.Cost > 1000 {
+			result = append(result, product)
+		}
+	}
+	return result
+}
+
+func (products Products) FilterStationaryProducts() Products {
+	result := Products{}
+	for _, product := range products {
+		if product.Category == "Stationary" {
+			result = append(result, product)
+		}
+	}
+	return result
 }
 
 //utility functions
@@ -178,4 +199,10 @@ func main() {
 
 	fmt.Println("Any")
 	fmt.Println("Are there any costly products ?:", products.Any(costlyProductPredicate))
+
+	//Day-10
+	utencilProducts := products.Filter(func(product Product) bool {
+		return product.Category == "Utencil"
+	})
+	fmt.Println(utencilProducts.Format())
 }
