@@ -178,3 +178,20 @@ Modularity
 
                         myutils
     
+    Using Open Source packages
+
+        installing
+            go get <package_name>
+
+        updating go.mod files (based on the usage of the packages)
+            go mod tidy
+
+        to localize the dependencies of the application
+            go mod vendor
+
+        Other mod commands
+            go mod graph
+            go mod why
+
+        Module command reference
+            https://go.dev/ref/mod
