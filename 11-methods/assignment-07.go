@@ -104,6 +104,36 @@ func (products Products) Any(predicate func(Product) bool) bool {
 	return false
 }
 
+//utility functions
+
+/*
+func Or(leftPredicate func(product Product) bool, rightPredicate func(product Product) bool) func(product Product) bool {
+	return func(product Product) bool {
+		return leftPredicate(product) || rightPredicate(product)
+	}
+}
+
+func And(leftPredicate func(product Product) bool, rightPredicate func(product Product) bool) func(product Product) bool {
+	return func(product Product) bool {
+		return leftPredicate(product) && rightPredicate(product)
+	}
+}
+*/
+
+type ProductPredicate func(product Product) bool
+
+func Or(leftPredicate ProductPredicate, rightPredicate ProductPredicate) ProductPredicate {
+	return func(product Product) bool {
+		return leftPredicate(product) || rightPredicate(product)
+	}
+}
+
+func And(leftPredicate ProductPredicate, rightPredicate ProductPredicate) ProductPredicate {
+	return func(product Product) bool {
+		return leftPredicate(product) && rightPredicate(product)
+	}
+}
+
 func main() {
 	products := Products{
 		Product{105, "Pen", 5, 50, "Stationary"},
@@ -137,6 +167,11 @@ func main() {
 	}
 	stationaryProducts := products.Filter(stationaryProductPredicate)
 	fmt.Println(stationaryProducts.Format())
+
+	fmt.Println("Costly Stationary products")
+	costlyStationaryProductPredicate := And(costlyProductPredicate, stationaryProductPredicate)
+	costlyStationaryProducts := products.Filter(costlyStationaryProductPredicate)
+	fmt.Println(costlyStationaryProducts.Format())
 
 	fmt.Println("All")
 	fmt.Println("Are all products costly products ?:", products.All(costlyProductPredicate))
