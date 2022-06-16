@@ -50,4 +50,21 @@ func main() {
 	fmt.Println("grapes Expiry = ", grapes.Expiry)
 	//fmt.Println("grapes Cost =", grapes.Product.Cost)
 	fmt.Println("grapes Cost =", grapes.Cost)
+
+	fmt.Println(FormatPerishableProduct(grapes))
+	ApplyDiscount(&grapes.Product, 10)
+	fmt.Println(FormatPerishableProduct(grapes))
+}
+
+/* Do NOT modify the below functions */
+func Format(product Product) string {
+	return fmt.Sprintf("Id=%d, Name=%q, Cost=%v, Units=%d, Category=%q", product.Id, product.Name, product.Cost, product.Units, product.Category)
+}
+
+func ApplyDiscount(product *Product, discount float32) {
+	product.Cost = product.Cost * ((100 - discount) / 100)
+}
+
+func FormatPerishableProduct(pp PerishableProduct) string {
+	return fmt.Sprintf("%v, Expiry=%q", Format(pp.Product), pp.Expiry)
 }
