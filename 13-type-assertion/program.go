@@ -3,7 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var x interface{}
+	//var x interface{}
+	var x any
+
 	//x = 100
 	//x = "This is a string"
 	//x = true
