@@ -6,6 +6,7 @@ import (
 	"sync/atomic"
 )
 
+//CSP - communicate by sharing memory (DON'T)
 var counter int32
 
 func main() {
