@@ -203,3 +203,9 @@ Concurrency
 
     To detect race conditions
         go run -race <program_name.go>
+
+    Channel Behavior
+        1. A 'receive' is ALWAYS a blocking operation
+            data := <- ch
+        2. A 'send' operation is blocked until a 'receive' operation is initiated (conditions apply)
+            OR in other words, a 'send' will be successful only if a 'receive' is already initiated
