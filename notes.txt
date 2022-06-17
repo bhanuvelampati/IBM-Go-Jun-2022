@@ -200,3 +200,6 @@ Modularity
 Concurrency
     1. Never assume the sequence of execution of the goroutines
     2. Never assume the time taken for a goroutine to complete
+
+    To detect race conditions
+        go run -race <program_name.go>
