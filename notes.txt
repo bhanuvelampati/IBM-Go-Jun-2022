@@ -209,3 +209,30 @@ Concurrency
             data := <- ch
         2. A 'send' operation is blocked until a 'receive' operation is initiated (conditions apply)
             OR in other words, a 'send' will be successful only if a 'receive' is already initiated
+
+
+IO
+    io package
+        Reader interface
+        Writer interface
+        Seeker interface
+        Closer interface
+
+    os package
+        APIs for file manipulation
+            creating, opening & deleting files
+
+    ioutil package
+        APIs for file reading & writing
+
+    bufio package
+        APIs for buffered I/O
+
+    JSON data
+        encoding/json package
+            Encoder
+                NewEncoder(w io.Writer) Encoder
+
+            Decoder
+                NewDecoder(r io.Reader) Decoder
+
