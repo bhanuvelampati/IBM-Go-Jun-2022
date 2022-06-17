@@ -8,17 +8,22 @@ import (
 )
 
 func main() {
-
-	primeNoCh := generatePrimes(3)
+	stopCh := make(chan bool)
+	primeNoCh := generatePrimes(3, stopCh)
+	fmt.Println("Hit ENTER key to stop!")
+	go func() {
+		fmt.Scanln()
+		stopCh <- true
+	}()
 	for primeNo := range primeNoCh {
 		fmt.Println(primeNo)
 	}
 	fmt.Println("Done")
 }
 
-func generatePrimes(start int) chan int {
+func generatePrimes(start int, stopCh chan bool) chan int {
 	ch := make(chan int)
-	timeoutCh := timeout(20 * time.Second)
+	//timeoutCh := time.After(20 * time.Second)
 	go func() {
 		no := start
 	LOOP:
@@ -26,14 +31,14 @@ func generatePrimes(start int) chan int {
 			if !isPrime(no) {
 				no++
 				select {
-				case <-timeoutCh:
+				case <-stopCh:
 					break LOOP
 				default:
 					continue LOOP
 				}
 			}
 			select {
-			case <-timeoutCh:
+			case <-stopCh:
 				break LOOP
 			case ch <- no:
 				no++
@@ -54,7 +59,7 @@ func isPrime(no int) bool {
 	return true
 }
 
-func timeout(d time.Duration) <-chan time.Time {
+/* func timeout(d time.Duration) <-chan time.Time {
 	timeOutCh := make(chan time.Time)
 	go func() {
 		time.Sleep(d)
@@ -62,3 +67,4 @@ func timeout(d time.Duration) <-chan time.Time {
 	}()
 	return timeOutCh
 }
+*/
